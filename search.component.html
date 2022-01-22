@@ -1,0 +1,11 @@
+<div class="search-container">
+  <form>
+    <input class="searchbox" type="search" placeholder="Search books or authors" matInput [formControl]="searchBox"
+      [matAutocomplete]="auto" class="searchbox">
+    <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
+      <mat-option *ngFor="let book of searchResults | async" [value]="book.bookId">
+        {{book.title}}
+      </mat-option>
+    </mat-autocomplete>
+  </form>
+</div>
